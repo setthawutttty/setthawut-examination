@@ -13,17 +13,7 @@ npm install
 npm start
 ```
 
-# database http://localhost/phpmyadmin
+# database use localhost
 
-## Project Setup
 
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm start
-```
 
