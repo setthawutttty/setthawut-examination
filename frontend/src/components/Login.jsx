@@ -12,8 +12,7 @@ export default function Login() {
     e.preventDefault();
     console.log(`username = ${username}`);
     console.log(`password = ${password}`);
-    // localStorage.setItem("login", 1);
-    // navigate("/profile");
+ 
     if (!username.match("^[A-Za-z0-9_]+$")) {
       Swal.fire(
         "Username ภาษาอังกฤษเท่านั้น",
@@ -65,20 +64,7 @@ export default function Login() {
         }
       });
   };
-  // useEffect(() => {
-  //   const login = localStorage.getItem("login");
-  //   console.log(login);
-  //   if (parseInt(login) === 1) {
-  //     navigate("/profile");
-  //   }
-  // }, []);
 
-  // const loginFunc = () => {
-  // };
-
-  //   const regisFunc = () => {
-  //     navigate("/regis");
-  //   };
   return (
     <div className="grid grid-cols-1 sm:grid-cols-1 h-screen w-full">
       <div className="bg-white flex flex-col justify-center">

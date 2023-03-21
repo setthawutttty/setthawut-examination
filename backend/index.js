@@ -44,21 +44,13 @@ app.use(
 );
 
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
-// app.get("/member", function (req, res, next) {
-//   db.query("SELECT * FROM `member`", function (err, results, fields) {
-//     res.json(results);
-//   });
-// });
+
 
 app.post("/login", function (req, res, next) {
   const username = req.body.username;
   const password = req.body.password;
 
   const query = `SELECT * FROM member WHERE username = '${username}' LIMIT 1;`;
-  //   console.log(`username = ${username}`);
-  //   console.log(`password = ${password}`);
-  //   console.log(query);
-
   db.query(query, function (err, results, fields) {
     if (err)
       return res
@@ -87,22 +79,6 @@ app.post("/login", function (req, res, next) {
         .send(responseFormat(false, 400, [], "ไม่พบข้อมูลผู้ใช้"));
     }
   });
-
-  //   bcrypt
-  //     .genSalt(saltRounds)
-  //     .then((salt) => {
-  //       console.log("Salt: ", salt);
-  //       return bcrypt.hash(password, salt);
-  //     })
-  //     .then((hash) => {
-  //       console.log("Hash: ", hash);
-  //       res.send({ hash: hash });
-  //     })
-  //     .catch((err) => console.error(err.message));
-
-  // db.query("SELECT * FROM `member`", function (err, results, fields) {
-  //   res.json(results);
-  // });
 });
 
 app.post("/register", async function (req, res, next) {
@@ -136,7 +112,7 @@ app.post("/register", async function (req, res, next) {
         )
       );
   }
-  console.log(req.files);
+
   if (!req.files) {
     return res
       .status(200)
@@ -152,8 +128,6 @@ app.post("/register", async function (req, res, next) {
     .then((hash) => {
       console.log("Hash: ", hash);
       hash2 = hash;
-      // return res.send({ hash: hash });
-      // return res.status(200).send(responseFormat(false, 500, { hash: hash }, "ok"));
     })
     .catch((err) => console.error(err.message));
   var query = "";
@@ -238,11 +212,7 @@ app.put("/editprofile", async function (req, res, next) {
           )
         );
   }
-  // if (!req.files) {
-  //   return res
-  //     .status(200)
-  //     .send(responseFormat(false, 405, [], "{ file } is required "));
-  // }
+
   var query = "";
   if (!password) {
     !lastname
@@ -273,8 +243,7 @@ app.put("/editprofile", async function (req, res, next) {
       .then((hash) => {
         console.log("Hash: ", hash);
         hash2 = hash;
-        // return res.send({ hash: hash });
-        // return res.status(200).send(responseFormat(false, 500, { hash: hash }, "ok"));
+ 
       })
       .catch((err) => console.error(err.message));
 
@@ -313,7 +282,6 @@ app.put("/editprofile", async function (req, res, next) {
           .send(responseFormat(true, 200, results2[0], "สำเร็จ"));
       }
     );
-    // return res.status(200).send(responseFormat(true, 200, [], "สำเร็จ"));
   });
 });
 

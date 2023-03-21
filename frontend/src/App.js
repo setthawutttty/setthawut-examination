@@ -4,7 +4,6 @@ import React, { useEffect } from "react";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
-import Test from "./components/test";
 import Edit from "./components/EditProfile";
 
 function App() {
@@ -22,7 +21,7 @@ function App() {
       <Route index path="/" element={<Login />} />
       <Route path="/regis" element={<Register />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/test" element={<Test />} />
+     
       <Route path="/edit" element={<Edit />} />
     </Routes>
   );

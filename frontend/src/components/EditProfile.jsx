@@ -88,7 +88,6 @@ export default function Register() {
         .then((res) => {
           console.log(res.data);
           if (res.data.status === true) {
-            // localStorage.setItem("login", 1);
             localStorage.setItem("data", JSON.stringify(res.data.data));
             const Toast = Swal.mixin({
               toast: true,
@@ -109,8 +108,7 @@ export default function Register() {
               navigate("/profile");
             });
           } else {
-            // localStorage.setItem("login", 0);
-            // localStorage.setItem("data", "");
+
             Swal.fire({
               position: "center",
               icon: "error",
@@ -121,12 +119,7 @@ export default function Register() {
             });
           }
         });
-      // const response = await axios({
-      //   method: "post",
-      //   url: "/register",
-      //   data: formData,
-      //   headers: { "Content-Type": "multipart/form-data" },
-      // });
+
     } catch (error) {
       console.log(error);
     }
@@ -164,7 +157,7 @@ export default function Register() {
               minLength={6}
               onChange={(e) => setpw(e.target.value)}
               value={pw}
-              // required
+
             />
             <p class="mt-2 invisible peer-invalid:visible text-yellow-500  text-xs italic font-normal">
               Password ความยาวไม่ต่ำกว่า 6 ตัวอักษร

@@ -31,8 +31,7 @@ export default function Register() {
   const regiserFunc = async (e) => {
     e.preventDefault();
     if (!username.match("^[A-Za-z0-9_]+$")) {
-      //   Swal.fire("สมัครสมาชิกเรียบร้อย", "", "success");
-      // } else {
+
       Swal.fire(
         "Username อยู่ระหว่าง [A-Z] [a-z] [0-9] _]",
         "กรุณาเเก้ไข Username!",
@@ -116,12 +115,7 @@ export default function Register() {
             });
           }
         });
-      // const response = await axios({
-      //   method: "post",
-      //   url: "/register",
-      //   data: formData,
-      //   headers: { "Content-Type": "multipart/form-data" },
-      // });
+
     } catch (error) {
       console.log(error);
     }
